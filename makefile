@@ -19,7 +19,7 @@ $(TARGET): $(OBJS)
 
 # Clean up generated files
 clean:
-	rm -f $(OBJ) $(TARGET)
+	rm -f $(OBJS) $(TARGET)
 
 # Rebuild from scratch
 rebuild: clean all

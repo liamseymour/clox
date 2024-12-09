@@ -1,1 +1,1 @@
-`lox` interpreter written in c based on the book [Crafting Interpreters](https://craftinginterpreters.com/a-virtual-machine.html).
+`clox` is a `lox` interpreter written in c based on the book [Crafting Interpreters](https://craftinginterpreters.com). `lox` source code is converted to byte code to be run in a custom virtual machine.
