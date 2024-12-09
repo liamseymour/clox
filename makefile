@@ -10,7 +10,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(TARGET)
 
 # Link objects into the executable
-$(TARGET): $(OBJ)
+$(TARGET): $(OBJS)
 	$(CC) $(LDFLAGS) -o $@ $^
 
 # Compile .c files into .o files
