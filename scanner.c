@@ -97,7 +97,7 @@ static void skipWhitespace() {
 static TokenType checkKeyword(int start, int length, const char* rest, 
 TokenType type) {
 	if (scanner.current - scanner.start == start + length && 
-		memcpy(scanner.start + start, rest, length) == 0) {
+		memcmp(scanner.start + start, rest, length) == 0) {
 		return type;
 	}
 
@@ -105,7 +105,6 @@ TokenType type) {
 }
 
 static TokenType identifierType() {
-	return TOKEN_IDENTIFIER;
 	switch (scanner.start[0]) {
 		case 'a': return checkKeyword(1, 2, "nd", TOKEN_AND);
 		case 'c': return checkKeyword(1, 4, "lass", TOKEN_CLASS);
@@ -118,7 +117,7 @@ static TokenType identifierType() {
 					case 'u': return checkKeyword(2, 1, "n", TOKEN_FUN);
 				}
 			}
-		break;
+			break;
 		case 'i': return checkKeyword(1, 1, "f", TOKEN_IF);
 		case 'n': return checkKeyword(1, 2, "il", TOKEN_NIL);
 		case 'o': return checkKeyword(1, 1, "r", TOKEN_OR);
@@ -135,7 +134,9 @@ static TokenType identifierType() {
 			break;
 		case 'v': return checkKeyword(1, 2, "ar", TOKEN_VAR);
 		case 'w': return checkKeyword(1, 4, "hile", TOKEN_WHILE);
-	}
+	}  
+
+	return TOKEN_IDENTIFIER;
 }
 
 static Token identifier() {
